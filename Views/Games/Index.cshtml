@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Game.Models.Game>
+
+<h1>Games</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Release Date</th>
+            <th>Generation</th>
+            <th>Region</th>
+            <th>Developer</th>
+            <th>Platform</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>@game.Title</td>
+                <td>@game.ReleaseDate.ToShortDateString()</td>
+                <td>@game.Generation</td>
+                <td>@game.Region</td>
+                <td>@game.Developer</td>
+                <td>@game.Platform</td>
+                <td>@game.Description</td>
+                <td>
+                    <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="https://jgrissom.github.io/dotnet-web-dev/week-04/homework-checks.js"></script>

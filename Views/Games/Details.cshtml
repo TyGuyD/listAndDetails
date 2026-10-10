@@ -1,0 +1,12 @@
+@model Game.Models.Game
+
+<h1>@Model.Title</h1>
+
+<p><strong>Release Date:</strong> @Model.ReleaseDate.ToShortDateString()</p>
+<p><strong>Generation:</strong> @Model.Generation</p>
+<p><strong>Region:</strong> @Model.Region</p>
+<p><strong>Developer:</strong> @Model.Developer</p>
+<p><strong>Platform:</strong> @Model.Platform</p>
+<p><strong>Description:</strong> @Model.Description</p>
+
+<a asp-controller="Games" asp-action="Index">Back to List</a>
