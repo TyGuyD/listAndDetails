@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<Game.Models.Game>
 
+@{
+    ViewData["Title"] = "Games List";
+}
+
 <h1>Games</h1>
 
 <table class="table">
@@ -12,7 +16,6 @@
             <th>Developer</th>
             <th>Platform</th>
             <th>Description</th>
-            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -33,4 +36,4 @@
         }
     </tbody>
 </table>
-<script src="https://jgrissom.github.io/dotnet-web-dev/week-04/homework-checks.js"></script>
+<script src="https://jgrissom.github.io/dotnet-web-dev/week-05/homework-checks.js"></script>
