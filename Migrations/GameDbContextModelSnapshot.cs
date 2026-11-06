@@ -325,6 +325,317 @@ namespace listAndDetails.Migrations
                             Title = "Pokemon Legends: Z-A"
                         });
                 });
+
+            modelBuilder.Entity("Game.Models.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GameId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Rating")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ReviewerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameId");
+
+                    b.ToTable("Reviews");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Comment = "Good. Gorgeous details, but it has too much water.",
+                            GameId = 13,
+                            Rating = 7.7999999999999998,
+                            ReviewerName = "IGN"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Comment = "These games have stood the test of time beautifully. Likely the best games in the series!",
+                            GameId = 10,
+                            Rating = 9.5,
+                            ReviewerName = "Tyler"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Comment = "A familiar but enjoyable adventure. Emerald offers plenty of content, although much of it feels recycled from Ruby and Sapphire.",
+                            GameId = 7,
+                            Rating = 7.5,
+                            ReviewerName = "GameSpot"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Comment = "An excellent enhanced version of Diamond and Pearl, with meaningful improvements and plenty of additional content.",
+                            GameId = 9,
+                            Rating = 9.0,
+                            ReviewerName = "Nintendo Life"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Comment = "An outstanding sequel that builds on its predecessors with an expanded world, new features, and an impressive amount of content.",
+                            GameId = 11,
+                            Rating = 9.5999999999999996,
+                            ReviewerName = "IGN"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Comment = "The familiar battling remains enjoyable, but the story and some of the new additions don't quite reach the same heights.",
+                            GameId = 11,
+                            Rating = 6.5,
+                            ReviewerName = "GameSpot"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Comment = "A colorful and enjoyable return to Hoenn, with improved visuals, Mega Evolution, and plenty of multiplayer possibilities.",
+                            GameId = 13,
+                            Rating = 8.0,
+                            ReviewerName = "GameSpot"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Comment = "A fantastic remake that brings Hoenn to life with impressive visuals and worthwhile additions.",
+                            GameId = 13,
+                            Rating = 9.0,
+                            ReviewerName = "Nintendo Life"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Comment = "A refreshing generation that reexamines familiar mechanics and introduces some of the biggest changes the series has seen.",
+                            GameId = 14,
+                            Rating = 8.5,
+                            ReviewerName = "Game Informer"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Comment = "A charming new region that balances familiarity with meaningful changes, welcoming both longtime fans and newcomers.",
+                            GameId = 14,
+                            Rating = 8.0,
+                            ReviewerName = "GamesRadar+"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Comment = "A definitive edition of Sun and Moon, offering small improvements, new activities, and additional content.",
+                            GameId = 15,
+                            Rating = 8.0,
+                            ReviewerName = "EGM"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Comment = "A worthwhile return to Alola, with improved pacing and charming details, although the story can become complicated.",
+                            GameId = 15,
+                            Rating = 8.0,
+                            ReviewerName = "GameSpot"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Comment = "A delightful reimagining of the original games that introduces smart changes while preserving their nostalgic appeal.",
+                            GameId = 16,
+                            Rating = 8.0,
+                            ReviewerName = "GameSpot"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Comment = "A heartwarming return to Kanto with colorful visuals, adorable partner Pokemon, and an enjoyable catching system.",
+                            GameId = 16,
+                            Rating = 8.3000000000000007,
+                            ReviewerName = "IGN"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Comment = "A strong new generation that streamlines familiar mechanics and focuses on the enjoyable fundamentals of Pokemon.",
+                            GameId = 17,
+                            Rating = 9.0,
+                            ReviewerName = "GameSpot"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Comment = "An entertaining introduction to the HD generation, with enjoyable battles and an appealing new region.",
+                            GameId = 17,
+                            Rating = 8.0,
+                            ReviewerName = "Nintendo Life"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Comment = "A nostalgic return to Sinnoh that preserves the enjoyment of catching, training, and exploring.",
+                            GameId = 18,
+                            Rating = 8.5,
+                            ReviewerName = "Game Informer"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Comment = "A comfortable return to Sinnoh with some welcome modern improvements, although it doesn't do enough to distinguish itself.",
+                            GameId = 18,
+                            Rating = 7.0,
+                            ReviewerName = "GameSpot"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Comment = "A disappointing remake that sticks too closely to the originals and misses opportunities to improve the experience.",
+                            GameId = 18,
+                            Rating = 6.0,
+                            ReviewerName = "Nintendo Life"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Comment = "A bold new direction for the franchise that finally delivers the open-world Pokemon experience many fans have wanted.",
+                            GameId = 19,
+                            Rating = 9.0,
+                            ReviewerName = "Nintendo Life"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Comment = "A significant reinvention of the series, with an addictive catching system and a refreshing approach to exploration.",
+                            GameId = 19,
+                            Rating = 8.0,
+                            ReviewerName = "GameSpot"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Comment = "A promising reinvention of the formula, although its environments and presentation leave something to be desired.",
+                            GameId = 19,
+                            Rating = 7.0,
+                            ReviewerName = "IGN"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Comment = "An enjoyable new direction for the franchise, with engaging real-time battles and an interesting setting.",
+                            GameId = 21,
+                            Rating = 8.0,
+                            ReviewerName = "IGN"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Comment = "An interesting evolution of Pokemon battles, although the restricted setting and repetitive activities hold it back.",
+                            GameId = 21,
+                            Rating = 7.0,
+                            ReviewerName = "GameSpot"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Comment = "The new battle system has potential, but the limited setting and visual presentation make the experience less impressive.",
+                            GameId = 21,
+                            Rating = 6.0,
+                            ReviewerName = "Nintendo Life"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Comment = "A fun new take on the franchise that makes its real-time battles and urban setting stand out.",
+                            GameId = 21,
+                            Rating = 8.0,
+                            ReviewerName = "Game Informer"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Comment = "An interesting evolution of the series, though its smaller setting and uneven exploration limit its ambitions.",
+                            GameId = 21,
+                            Rating = 6.0,
+                            ReviewerName = "Eurogamer"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Comment = "It's amazing how much was accomplished with such limited hardware. A classic that deserves its reputation.",
+                            GameId = 1,
+                            Rating = 9.0,
+                            ReviewerName = "Alex"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Comment = "Being able to revisit Kanto after completing Johto is still one of my favorite moments in the franchise.",
+                            GameId = 4,
+                            Rating = 9.5,
+                            ReviewerName = "Morgan"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Comment = "The Battle Frontier is everything I want from a Pokemon post-game. I could spend hundreds of hours here.",
+                            GameId = 7,
+                            Rating = 10.0,
+                            ReviewerName = "Tyler"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Comment = "The transition into 3D was fantastic. Exploring Kalos and discovering Mega Evolution made this generation memorable.",
+                            GameId = 12,
+                            Rating = 9.0,
+                            ReviewerName = "Jordan"
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Comment = "The open world is fantastic and the story surprised me. Performance issues are unfortunate, but I still had a great time.",
+                            GameId = 20,
+                            Rating = 8.5,
+                            ReviewerName = "Sam"
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Comment = "I love the direction this series is heading. The new battle system makes encounters much more exciting.",
+                            GameId = 21,
+                            Rating = 9.5,
+                            ReviewerName = "Tyler"
+                        });
+                });
+
+            modelBuilder.Entity("Game.Models.Review", b =>
+                {
+                    b.HasOne("Game.Models.Game", "Game")
+                        .WithMany("Reviews")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Game");
+                });
+
+            modelBuilder.Entity("Game.Models.Game", b =>
+                {
+                    b.Navigation("Reviews");
+                });
 #pragma warning restore 612, 618
         }
     }
