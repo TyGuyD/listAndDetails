@@ -26,6 +26,9 @@ public class Game
     [StringLength(100)]
     public string Developer { get; set; } = string.Empty;
 
+    [StringLength(50)]
+    public string? Director { get; set; }
+
     [Required]
     [StringLength(50)]
     public string Platform { get; set; } = string.Empty;

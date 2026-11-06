@@ -17,7 +17,7 @@ namespace listAndDetails.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.13")
+                .HasAnnotation("ProductVersion", "10.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -39,6 +39,10 @@ namespace listAndDetails.Migrations
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Director")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Generation")
                         .IsRequired()
@@ -73,6 +77,7 @@ namespace listAndDetails.Migrations
                             Id = 1,
                             Description = "The first Pokemon games released in Japan.",
                             Developer = "Game Freak",
+                            Director = "Satoshi Tajiri",
                             Generation = "1",
                             Platform = "Game Boy",
                             Region = "Kanto",
@@ -84,6 +89,7 @@ namespace listAndDetails.Migrations
                             Id = 2,
                             Description = "An updated version of Pokemon Red and Green released in Japan.",
                             Developer = "Game Freak",
+                            Director = "Satoshi Tajiri",
                             Generation = "1",
                             Platform = "Game Boy",
                             Region = "Kanto",
@@ -95,6 +101,7 @@ namespace listAndDetails.Migrations
                             Id = 3,
                             Description = "A special edition of Pokemon Red and Blue featuring Pikachu as the starter Pokemon.",
                             Developer = "Game Freak",
+                            Director = "Satoshi Tajiri",
                             Generation = "1",
                             Platform = "Game Boy",
                             Region = "Kanto",
@@ -106,6 +113,7 @@ namespace listAndDetails.Migrations
                             Id = 4,
                             Description = "The second generation of Pokemon games introducing new Pokemon and features.",
                             Developer = "Game Freak",
+                            Director = "Satoshi Tajiri",
                             Generation = "2",
                             Platform = "Game Boy Color",
                             Region = "Johto",
@@ -117,6 +125,7 @@ namespace listAndDetails.Migrations
                             Id = 5,
                             Description = "An updated version of Pokemon Gold and Silver with additional features.",
                             Developer = "Game Freak",
+                            Director = "Junichi Masuda",
                             Generation = "2",
                             Platform = "Game Boy Color",
                             Region = "Johto",
@@ -128,6 +137,7 @@ namespace listAndDetails.Migrations
                             Id = 6,
                             Description = "The third generation of Pokemon games introducing new Pokemon and features.",
                             Developer = "Game Freak",
+                            Director = "Junichi Masuda",
                             Generation = "3",
                             Platform = "Game Boy Advance",
                             Region = "Hoenn",
@@ -139,6 +149,7 @@ namespace listAndDetails.Migrations
                             Id = 7,
                             Description = "An updated version of Pokemon Ruby and Sapphire with additional features.",
                             Developer = "Game Freak",
+                            Director = "Shigeki Morimoto",
                             Generation = "3",
                             Platform = "Game Boy Advance",
                             Region = "Hoenn",
@@ -150,6 +161,7 @@ namespace listAndDetails.Migrations
                             Id = 8,
                             Description = "The fourth generation of Pokemon games introducing new Pokemon and features.",
                             Developer = "Game Freak",
+                            Director = "Junichi Masuda",
                             Generation = "4",
                             Platform = "Nintendo DS",
                             Region = "Sinnoh",
@@ -161,6 +173,7 @@ namespace listAndDetails.Migrations
                             Id = 9,
                             Description = "An updated version of Pokemon Diamond and Pearl with additional features.",
                             Developer = "Game Freak",
+                            Director = "Takeshi Kawachimaru",
                             Generation = "4",
                             Platform = "Nintendo DS",
                             Region = "Sinnoh",
@@ -172,6 +185,7 @@ namespace listAndDetails.Migrations
                             Id = 10,
                             Description = "The fifth generation of Pokemon games introducing new Pokemon and features.",
                             Developer = "Game Freak",
+                            Director = "Junichi Masuda",
                             Generation = "5",
                             Platform = "Nintendo DS",
                             Region = "Unova",
@@ -183,6 +197,7 @@ namespace listAndDetails.Migrations
                             Id = 11,
                             Description = "An updated version of Pokemon Black and White with additional features.",
                             Developer = "Game Freak",
+                            Director = "Takao Unno",
                             Generation = "5",
                             Platform = "Nintendo DS",
                             Region = "Unova",
@@ -194,6 +209,7 @@ namespace listAndDetails.Migrations
                             Id = 12,
                             Description = "The sixth generation of Pokemon games introducing new Pokemon and features.",
                             Developer = "Game Freak",
+                            Director = "Junichi Masuda",
                             Generation = "6",
                             Platform = "Nintendo 3DS",
                             Region = "Kalos",
@@ -205,6 +221,7 @@ namespace listAndDetails.Migrations
                             Id = 13,
                             Description = "An updated version of Pokemon Ruby and Sapphire with additional features.",
                             Developer = "Game Freak",
+                            Director = "Shigeru Ohmori",
                             Generation = "6",
                             Platform = "Nintendo 3DS",
                             Region = "Hoenn",
@@ -216,6 +233,7 @@ namespace listAndDetails.Migrations
                             Id = 14,
                             Description = "The seventh generation of Pokemon games introducing new Pokemon and features.",
                             Developer = "Game Freak",
+                            Director = "Shigeru Ohmori",
                             Generation = "7",
                             Platform = "Nintendo 3DS",
                             Region = "Alola",
@@ -227,6 +245,7 @@ namespace listAndDetails.Migrations
                             Id = 15,
                             Description = "An updated version of Pokemon Sun and Moon with additional features.",
                             Developer = "Game Freak",
+                            Director = "Kazumasa Iwao",
                             Generation = "7",
                             Platform = "Nintendo 3DS",
                             Region = "Alola",
@@ -238,6 +257,7 @@ namespace listAndDetails.Migrations
                             Id = 16,
                             Description = "A reimagining of Pokemon Yellow with updated graphics and gameplay.",
                             Developer = "Game Freak",
+                            Director = "Junichi Masuda",
                             Generation = "7",
                             Platform = "Nintendo Switch",
                             Region = "Kanto",
@@ -249,6 +269,7 @@ namespace listAndDetails.Migrations
                             Id = 17,
                             Description = "The eighth generation of Pokemon games introducing new Pokemon and features.",
                             Developer = "Game Freak",
+                            Director = "Shigeru Ohmori",
                             Generation = "8",
                             Platform = "Nintendo Switch",
                             Region = "Galar",
@@ -260,6 +281,7 @@ namespace listAndDetails.Migrations
                             Id = 18,
                             Description = "A remaster of Pokemon Diamond and Pearl with updated graphics and gameplay.",
                             Developer = "ILCA",
+                            Director = "Junichi Masuda, Yuichi Ueda",
                             Generation = "8",
                             Platform = "Nintendo Switch",
                             Region = "Sinnoh",
@@ -271,6 +293,7 @@ namespace listAndDetails.Migrations
                             Id = 19,
                             Description = "A prequel to Pokemon Diamond and Pearl set in the Hisui region.",
                             Developer = "Game Freak",
+                            Director = "Kazumasa Iwao",
                             Generation = "8",
                             Platform = "Nintendo Switch",
                             Region = "Hisui",
@@ -282,11 +305,24 @@ namespace listAndDetails.Migrations
                             Id = 20,
                             Description = "The ninth generation of Pokemon games introducing new Pokemon and features.",
                             Developer = "Game Freak",
+                            Director = "Shigeru Ohmori",
                             Generation = "9",
                             Platform = "Nintendo Switch",
                             Region = "Paldea",
                             ReleaseDate = new DateTime(2022, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Title = "Pokemon Scarlet and Violet"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Description = "A new entry in the Pokemon Legends series set in Lumiose City, featuring an urban redevelopment project and a real-time battle system.",
+                            Developer = "Game Freak",
+                            Director = "Haruka Tochigi",
+                            Generation = "9",
+                            Platform = "Nintendo Switch, Nintendo Switch 2",
+                            Region = "Kalos",
+                            ReleaseDate = new DateTime(2025, 10, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Pokemon Legends: Z-A"
                         });
                 });
 #pragma warning restore 612, 618
