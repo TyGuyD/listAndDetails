@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Game.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace listAndDetails.Controllers;
 
@@ -19,9 +20,9 @@ public class GamesController : Controller
         return View(games);
     }
 
-    public IActionResult Details(int id)
+    public async Task<IActionResult> Details(int id)
     {
-        var game = _context.Games.FirstOrDefault(g => g.Id == id);
+        var game = await _context.Games.Include(g => g.Reviews).FirstOrDefaultAsync(g => g.Id == id);
         if (game == null)
         {
             return NotFound();
@@ -127,5 +128,35 @@ public class GamesController : Controller
     private bool GameExists(int id)
     {
         return _context.Games.Any(e => e.Id == id);
+    }
+
+    [HttpGet]
+    public IActionResult CreateReview(int? GameId)
+    {
+        ViewData["Games"] = new SelectList(_context.Games, "Id", "Title", GameId);
+        return View(new ReviewFormViewModel { GameId = GameId ?? 0 });
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> CreateReview(ReviewFormViewModel model)
+    {
+        if (ModelState.IsValid)
+        {
+            var review = new Review
+            {
+                GameId = model.GameId,
+                ReviewerName = model.ReviewerName,
+                Rating = model.Rating,
+                Comment = model.Comment
+            };
+
+            _context.Reviews.Add(review);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Details", new { id = model.GameId });
+        }
+
+        ViewData["Games"] = new SelectList(_context.Games, "Id", "Title", model.GameId);
+        return View(model);
     }
 }

@@ -15,3 +15,16 @@
 <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
 <br>
 <a asp-controller="Games" asp-action="Index">Back to List</a>
+
+<div style="margin-top: 20px;">
+    <h2>Reviews</h2>
+    <ul>
+        @foreach (var review in Model.Reviews)
+        {
+            <li>
+                <strong>@review.ReviewerName</strong>: @review.Rating/5 - @review.Comment
+            </li>
+        }
+    </ul>
+    <a asp-action="CreateReview" asp-route-GameId="@Model.Id" class="btn btn-primary">Add Review</a>
+</div>
