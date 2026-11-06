@@ -1,156 +1,141 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Game.Models;
 
-namespace listAndDetails.Controllers
+namespace listAndDetails.Controllers;
+
+public class GamesScaffoldController : Controller
 {
-    public class GamesScaffoldController : Controller
+    private readonly GameDbContext _context;
+
+    public GamesScaffoldController(GameDbContext context)
     {
-        private readonly GameDbContext _context;
+        _context = context;
+    }
 
-        public GamesScaffoldController(GameDbContext context)
+    public async Task<IActionResult> Index()
+    {
+        return View(await _context.Games.ToListAsync());
+    }
+
+    public async Task<IActionResult> Details(int? id)
+    {
+        if (id == null || _context.Games == null)
         {
-            _context = context;
+            return NotFound();
         }
 
-        // GET: GamesScaffold
-        public async Task<IActionResult> Index()
+        var game = await _context.Games
+            .FirstOrDefaultAsync(m => m.Id == id);
+        if (game == null)
         {
-            return View(await _context.Games.ToListAsync());
+            return NotFound();
         }
 
-        // GET: GamesScaffold/Details/5
-        public async Task<IActionResult> Details(int? id)
+        return View(game);
+    }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Generation,Region,Developer,Platform,Description")] Game.Models.Game game)
+    {
+        if (ModelState.IsValid)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var game = await _context.Games
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (game == null)
-            {
-                return NotFound();
-            }
-
-            return View(game);
-        }
-
-        // GET: GamesScaffold/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: GamesScaffold/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Generation,Region,Developer,Platform,Description")] Game game)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(game);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(game);
-        }
-
-        // GET: GamesScaffold/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var game = await _context.Games.FindAsync(id);
-            if (game == null)
-            {
-                return NotFound();
-            }
-            return View(game);
-        }
-
-        // POST: GamesScaffold/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Generation,Region,Developer,Platform,Description")] Game game)
-        {
-            if (id != game.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(game);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!GameExists(game.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(game);
-        }
-
-        // GET: GamesScaffold/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var game = await _context.Games
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (game == null)
-            {
-                return NotFound();
-            }
-
-            return View(game);
-        }
-
-        // POST: GamesScaffold/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var game = await _context.Games.FindAsync(id);
-            if (game != null)
-            {
-                _context.Games.Remove(game);
-            }
-
+            _context.Add(game);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        return View(game);
+    }
 
-        private bool GameExists(int id)
+    public async Task<IActionResult> Edit(int? id)
+    {
+        if (id == null || _context.Games == null)
         {
-            return _context.Games.Any(e => e.Id == id);
+            return NotFound();
         }
+
+        var game = await _context.Games.FindAsync(id);
+        if (game == null)
+        {
+            return NotFound();
+        }
+        return View(game);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Generation,Region,Developer,Platform,Description")] Game.Models.Game game)
+    {
+        if (id != game.Id)
+        {
+            return NotFound();
+        }
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(game);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!GameExists(game.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+        return View(game);
+    }
+
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null || _context.Games == null)
+        {
+            return NotFound();
+        }
+
+        var game = await _context.Games
+            .FirstOrDefaultAsync(m => m.Id == id);
+        if (game == null)
+        {
+            return NotFound();
+        }
+
+        return View(game);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id)
+    {
+        if (_context.Games == null)
+        {
+            return Problem("Entity set 'GameDbContext.Games' is null.");
+        }
+        var game = await _context.Games.FindAsync(id);
+        if (game != null)
+        {
+            _context.Games.Remove(game);
+        }
+
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
+
+    private bool GameExists(int id)
+    {
+        return _context.Games.Any(e => e.Id == id);
     }
 }

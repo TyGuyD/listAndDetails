@@ -9,4 +9,8 @@
 <p><strong>Platform:</strong> @Model.Platform</p>
 <p><strong>Description:</strong> @Model.Description</p>
 
+<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+<br>
+<a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+<br>
 <a asp-controller="Games" asp-action="Index">Back to List</a>
