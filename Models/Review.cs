@@ -11,7 +11,7 @@ namespace Game.Models
         [StringLength(50)]
         public string ReviewerName { get; set; } = string.Empty; 
 
-        [Range(1, 5)]
+        [Range(1.0, 10.0, ErrorMessage = "Rating must be between 1 and 10.")]
         public double Rating { get; set; }
 
         [StringLength(500)]

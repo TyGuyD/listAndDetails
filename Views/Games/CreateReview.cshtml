@@ -4,18 +4,26 @@
     <div class="form-group">
         <label asp-for="GameId"></label>
         <select asp-for="GameId" asp-items="@(ViewData["Games"] as IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>)" class="form-control"></select>
+        <span asp-validation-for="GameId" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="ReviewerName"></label>
         <input asp-for="ReviewerName" class="form-control" />
+        <span asp-validation-for="ReviewerName" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Rating"></label>
-        <input asp-for="Rating" class="form-control" />
+        <input asp-for="Rating" class="form-control" type="number" min="1" max="10" step="0.1" />
+        <span asp-validation-for="Rating" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Comment"></label>
         <textarea asp-for="Comment" class="form-control"></textarea>
+        <span asp-validation-for="Comment" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
