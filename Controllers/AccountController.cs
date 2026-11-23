@@ -36,7 +36,8 @@ public class AccountController : Controller
         var user = new AppUser
         {
             UserName = form.Email,
-            Email = form.Email
+            Email = form.Email,
+            DisplayName = form.DisplayName
         };
 
         var result = await _userManager.CreateAsync(user, form.Password);

@@ -3,24 +3,31 @@ using Game.Models;
 using listAndDetails.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace listAndDetails.Controllers;
 
+[Authorize]
 public class GamesController : Controller
 {
     private readonly GameDbContext _context;
+    private readonly UserManager<AppUser> _userManager;
 
-    public GamesController(GameDbContext context)
+    public GamesController(GameDbContext context, UserManager<AppUser> userManager)
     {
         _context = context;
+        _userManager = userManager;
     }
 
+    [AllowAnonymous]
     public IActionResult Index()
     {
         var games = _context.Games.ToList();
         return View(games);
     }
 
+    [AllowAnonymous]
     public async Task<IActionResult> Details(int id)
     {
         var game = await _context.Games.Include(g => g.Reviews).FirstOrDefaultAsync(g => g.Id == id);
@@ -131,13 +138,29 @@ public class GamesController : Controller
         return _context.Games.Any(e => e.Id == id);
     }
 
+    [AllowAnonymous]
     [HttpGet]
-    public IActionResult CreateReview(int? GameId)
+    public async Task<IActionResult> CreateReview(int? GameId)
     {
         ViewData["Games"] = new SelectList(_context.Games, "Id", "Title", GameId);
-        return View(new ReviewFormViewModel { GameId = GameId ?? 0 });
+
+        var reviewerName = string.Empty;
+        if (User.Identity?.IsAuthenticated == true)
+        {
+            var user = await _userManager.GetUserAsync(User);
+            reviewerName = string.IsNullOrWhiteSpace(user?.DisplayName)
+                ? user?.UserName ?? string.Empty
+                : user.DisplayName;
+        }
+
+        return View(new ReviewFormViewModel
+        {
+            GameId = GameId ?? 0,
+            ReviewerName = reviewerName
+        });
     }
 
+    [AllowAnonymous]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateReview(ReviewFormViewModel model)
