@@ -3,45 +3,46 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - listAndDetails</title>
+    <title>@ViewData["Title"] - GameDex</title>
     <script type="importmap"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/lux/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/listAndDetails.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">listAndDetails</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+    <div class="pokedex-shell">
+        <header class="pokedex-header">
+            <nav class="navbar navbar-expand-sm navbar-dark pokedex-nav">
+                <div class="container-fluid">
+                    <a class="navbar-brand pokedex-brand" asp-controller="Home" asp-action="Index">
+                        <span class="brand-lens" aria-hidden="true"></span>
+                        <span>
+                            <strong>GameDex</strong>
+                            <small>Game Registry</small>
+                        </span>
+                    </a>
+                    <div class="navbar-collapse d-inline-flex">
+                        <ul class="navbar-nav pokedex-nav-list">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link pokedex-button" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Games" asp-action="Index">Games</a>
+                                <a class="nav-link pokedex-button" asp-controller="Games" asp-action="Index">Games</a>
                         </li>
                     </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+            </nav>
+        </header>
+
+        <main role="main" class="pokedex-screen">
             @RenderBody()
         </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-    <div class="container">
-        <p>&copy; 2026 Tyler Demshar</p>
+        <footer class="pokedex-footer">
+            <span class="footer-dot" aria-hidden="true"></span>
+            <span>GameDex Registry &copy; 2026</span>
+        </footer>
     </div>
-</footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

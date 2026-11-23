@@ -1,7 +1,67 @@
 ﻿@{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = "GameDex";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<div class="home-hero">
+    <section class="hero-copy">
+        <p class="screen-kicker">Regional Game Database / Online</p>
+        <h1>The GameDex<br><span>Registry</span></h1>
+        <p class="hero-description">
+            GameDex is a Pokedex-inspired registry for video game information.
+            Explore titles, compare their regions and platforms, and keep track
+            of every release in the collection.
+        </p>
+        <div class="hero-actions">
+            <a asp-controller="Games" asp-action="Index" class="dex-button dex-button-primary">
+                Open the GameDex
+            </a>
+            <a asp-controller="Games" asp-action="Create" class="dex-button dex-button-secondary">
+                Register a game
+            </a>
+        </div>
+    </section>
+
+    <section class="dex-display" aria-label="GameDex overview">
+        <div class="display-speakers" aria-hidden="true">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="display-panel">
+            <div class="display-status">
+                <span>GAMEDEX</span>
+                <span class="status-light"></span>
+            </div>
+            <div class="display-data">
+                <span class="entry-number">NO. 001</span>
+                <strong>Game Registry</strong>
+                <p>Catalog / Discover / Review</p>
+            </div>
+            <div class="display-scan">
+                <span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+    </section>
 </div>
+
+<section class="feature-grid" aria-label="GameDex features">
+    <article class="feature-card">
+        <span class="feature-icon">01</span>
+        <div>
+            <h2>Browse the registry</h2>
+            <p>Search through each indexed title and view its release, platform, and region.</p>
+        </div>
+    </article>
+    <article class="feature-card">
+        <span class="feature-icon">02</span>
+        <div>
+            <h2>Leave reviews</h2>
+            <p>Share your thoughts and ratings about your favorite games with the community.</p>
+        </div>
+    </article>
+    <article class="feature-card">
+        <span class="feature-icon">03</span>
+        <div>
+            <h2>Expand your collection</h2>
+            <p>Add new games and contributions to keep the GameDex complete and useful.</p>
+        </div>
+    </article>
+</section>

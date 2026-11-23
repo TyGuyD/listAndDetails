@@ -1,47 +1,69 @@
 ﻿@model IEnumerable<Game.Models.Game>
 
 @{
-    ViewData["Title"] = "Games List";
+    ViewData["Title"] = "Games";
 }
 
-<h1>Games</h1>
+<div class="games-header">
+    <div>
+        <p class="screen-kicker">GameDex Archive / Complete Registry</p>
+        <h1>Game Index</h1>
+        <p>@Model.Count() registered entries</p>
+    </div>
+    <a asp-action="Create" class="dex-button dex-button-primary">+ Register game</a>
+</div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Release Date</th>
-            <th>Generation</th>
-            <th>Region</th>
-            <th>Developer</th>
-            <th>Director</th>
-            <th>Platform</th>
-            <th>Description</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
+@if (!Model.Any())
+{
+    <section class="empty-dex">
+        <span class="empty-dex-icon" aria-hidden="true"></span>
+        <h2>No entries found</h2>
+        <p>The registry is ready for its first game.</p>
+        <a asp-action="Create" class="dex-button dex-button-primary">Create the first entry</a>
+    </section>
+}
+else
+{
+    <div class="game-grid">
         @foreach (var game in Model)
         {
-            <tr>
-                <td>@game.Title</td>
-                <td>@game.ReleaseDate.ToShortDateString()</td>
-                <td>@game.Generation</td>
-                <td>@game.Region</td>
-                <td>@game.Developer</td>
-                <td>@game.Director</td>
-                <td>@game.Platform</td>
-                <td>@game.Description</td>
-                <td>
-                    <a asp-controller="Games" asp-action="Details" asp-route-id="@game.Id">Details</a>
-                </td>
-            </tr>
+            <article class="game-card">
+                <div class="game-card-top">
+                    <span>No. @game.Id.ToString("D3")</span>
+                    <span class="game-card-status">Registered</span>
+                </div>
+                <h2>@game.Title</h2>
+                <dl class="game-facts">
+                    <div>
+                        <dt>Region</dt>
+                        <dd>@game.Region</dd>
+                    </div>
+                    <div>
+                        <dt>Generation</dt>
+                        <dd>@game.Generation</dd>
+                    </div>
+                    <div>
+                        <dt>Platform</dt>
+                        <dd>@game.Platform</dd>
+                    </div>
+                    <div>
+                        <dt>Released</dt>
+                        <dd>@game.ReleaseDate.ToString("MMM d, yyyy")</dd>
+                    </div>
+                </dl>
+                <p class="game-description">@game.Description</p>
+                <div class="game-card-footer">
+                    <div>
+                        <span class="fact-label">Developer</span>
+                        <strong>@game.Developer</strong>
+                    </div>
+                    <a asp-action="Details" asp-route-id="@game.Id" class="detail-button" aria-label="View details for @game.Title">
+                        Details <span aria-hidden="true">&rarr;</span>
+                    </a>
+                </div>
+            </article>
         }
-    </tbody>
-</table>
-
-<p>
-    <a asp-action="Create" class="btn btn-primary">Create New Game</a>
-</p>
+    </div>
+}
 
 <script src="https://jgrissom.github.io/dotnet-web-dev/week-10/homework-checks.js"></script>
