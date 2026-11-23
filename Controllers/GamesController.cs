@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace listAndDetails.Controllers;
 
-[Authorize]
+[Authorize(Roles = "RegistryAdmin")]
 public class GamesController : Controller
 {
     private readonly GameDbContext _context;
