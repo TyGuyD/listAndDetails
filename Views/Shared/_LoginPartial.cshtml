@@ -1,0 +1,22 @@
+<ul class="navbar-nav pokedex-nav-list pokedex-account-list align-items-sm-center">
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <li class="nav-item">
+        <span class="pokedex-user-label">Signed in as @User.Identity.Name</span>
+    </li>
+    <li class="nav-item">
+        <form asp-controller="Account" asp-action="Logout" method="post">
+            <button type="submit" class="nav-link pokedex-button pokedex-account-button">Sign out</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link pokedex-button pokedex-account-button" asp-controller="Account" asp-action="Register">Register</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link pokedex-button pokedex-account-button" asp-controller="Account" asp-action="Login">Sign in</a>
+    </li>
+}
+</ul>
