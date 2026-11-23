@@ -134,11 +134,12 @@ a {
   max-width: 180px;
   overflow: hidden;
   color: white;
-  font-size: .68rem;
-  font-weight: 900;
-  letter-spacing: .04em;
+
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -.03em;
   text-overflow: ellipsis;
-  text-transform: uppercase;
   white-space: nowrap;
 }
 
@@ -786,7 +787,41 @@ textarea.form-control {
   display: block;
   margin-top: 5px;
   color: #a70f18;
+  font-size: .88rem;
+}
+
+.account-header {
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+
+.account-form {
+  max-width: 900px;
+  padding: 28px;
+}
+
+.account-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.account-check {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  gap: 9px;
+  margin-top: 2px;
+  color: var(--dex-navy);
   font-size: .78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.account-check-input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--dex-red);
 }
 
 .delete-panel,

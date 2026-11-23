@@ -3,36 +3,46 @@
     ViewData["Title"] = "Create an account";
 }
 
-<h1>Create an account</h1>
+<div class="games-header account-header">
+    <div>
+        <p class="screen-kicker">GameDex / New Trainer</p>
+        <h1>Create Account</h1>
+    </div>
+</div>
 
-<form asp-action="Register" method="post" class="col-md-6">
+<form asp-action="Register" method="post" class="dex-form account-form">
     <div asp-validation-summary="All" class="text-danger"></div>
 
-    <div class="mb-3">
+    <div class="form-grid account-form-grid">
+    <div class="form-group">
         <label asp-for="Email" class="form-label"></label>
         <input asp-for="Email" class="form-control" autocomplete="username" />
         <span asp-validation-for="Email" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
+    <div class="form-group">
         <label asp-for="DisplayName" class="form-label"></label>
         <input asp-for="DisplayName" class="form-control" />
         <span asp-validation-for="DisplayName" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
+    <div class="form-group">
         <label asp-for="Password" class="form-label"></label>
         <input asp-for="Password" class="form-control" autocomplete="new-password" />
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
 
-    <div class="mb-3">
+    <div class="form-group">
         <label asp-for="ConfirmPassword" class="form-label"></label>
         <input asp-for="ConfirmPassword" class="form-control" autocomplete="new-password" />
         <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
     </div>
+    </div>
 
-    <button type="submit" class="btn btn-primary">Create the account</button>
+    <div class="dex-form-actions">
+        <button type="submit" class="dex-button dex-button-primary">Create account</button>
+        <a asp-action="Login" class="dex-button dex-button-secondary">Already registered?</a>
+    </div>
 </form>
 
 @section Scripts {

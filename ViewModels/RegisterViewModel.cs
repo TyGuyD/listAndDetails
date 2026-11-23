@@ -9,7 +9,7 @@ public class RegisterViewModel
     public string Email { get; set; } = "";
 
     [Required]
-    [Display(Name = "What should we call you?")]
+    [Display(Name = "Trainer Name")]
     [StringLength(40, MinimumLength = 2)]
     public string DisplayName { get; set; } = "";
 
