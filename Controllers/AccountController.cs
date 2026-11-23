@@ -55,6 +55,12 @@ public class AccountController : Controller
         await _signInManager.SignInAsync(user, isPersistent: false);
         return RedirectToAction("Index", "Home");
     }
+
+    [HttpGet]
+    public IActionResult AccessDenied()
+    {
+        return View();
+    }
     
     public IActionResult Login(string? returnUrl = null)
     {
