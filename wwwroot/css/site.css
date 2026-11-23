@@ -833,7 +833,7 @@ textarea.form-control {
 .delete-warning {
   margin: 0 0 8px;
   color: var(--dex-red);
-  font-size: .72rem;
+  font-size: 1rem;
   font-weight: 900;
   letter-spacing: .12em;
   text-transform: uppercase;

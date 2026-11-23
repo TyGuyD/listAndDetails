@@ -1,4 +1,4 @@
-@model IEnumerable<global::Game.Models.Game>
+﻿@model IEnumerable<global::Game.Models.Game>
 
 @{
     ViewData["Title"] = "Games";
@@ -10,7 +10,10 @@
         <h1>Game Index</h1>
         <p>@Model.Count() registered entries</p>
     </div>
-    <a asp-action="Create" class="dex-button dex-button-primary">+ Register game</a>
+    @if (User.IsInRole("RegistryAdmin"))
+    {
+        <a asp-action="Create" class="dex-button dex-button-primary">+ Register game</a>
+    }
 </div>
 
 @if (!Model.Any())
@@ -19,7 +22,10 @@
         <span class="empty-dex-icon" aria-hidden="true"></span>
         <h2>No entries found</h2>
         <p>The registry is ready for its first game.</p>
-        <a asp-action="Create" class="dex-button dex-button-primary">Create the first entry</a>
+        @if (User.IsInRole("RegistryAdmin"))
+        {
+            <a asp-action="Create" class="dex-button dex-button-primary">Create the first entry</a>
+        }
     </section>
 }
 else
@@ -66,4 +72,4 @@ else
     </div>
 }
 
-<script src="https://jgrissom.github.io/dotnet-web-dev/week-11/homework-checks.js"></script>
+<script src="https://jgrissom.github.io/dotnet-web-dev/week-12/homework-checks.js"></script>

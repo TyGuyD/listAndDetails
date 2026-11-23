@@ -11,6 +11,13 @@ Built for .NET Web Development at WCTC.
 - Add, edit, and delete games
 - Submit a rating and written review for a game
 
+## Roles
+
+The `RegistryAdmin` role manages curated game entries. It can create, edit, and
+delete games. Public visitors can browse games and submit reviews. On Azure,
+set `Admin__Email` to the email address of the account that should receive the
+role.
+
 ## The three things I improved
 
 1. Website now has improved, unique styling. Every page follows a consistent Pokedex-inspired theme. Styling also adapted to work well across multiple devices and screen sizes. 

@@ -31,8 +31,11 @@
             <p>@Model.Description</p>
         </div>
         <div class="details-actions">
-            <a asp-action="Edit" asp-route-id="@Model.Id" class="dex-button dex-button-primary">Edit entry</a>
-            <a asp-action="Delete" asp-route-id="@Model.Id" class="dex-button dex-button-danger">Delete entry</a>
+            @if (User.IsInRole("RegistryAdmin"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="dex-button dex-button-primary">Edit entry</a>
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="dex-button dex-button-danger">Delete entry</a>
+            }
         </div>
     </section>
 
