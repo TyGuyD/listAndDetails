@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Game.Models
+namespace listAndDetails.ViewModels
 {
     public class ReviewFormViewModel
     {

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Game.Models;
+using listAndDetails.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 

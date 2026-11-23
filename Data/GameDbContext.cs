@@ -1,8 +1,9 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace Game.Models;
 
-public class GameDbContext : DbContext
+public class GameDbContext : IdentityDbContext<AppUser>
 {
     public GameDbContext(DbContextOptions<GameDbContext> options) : base(options) { }
 
@@ -11,6 +12,8 @@ public class GameDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        base.OnModelCreating(modelBuilder);
+
         modelBuilder.Entity<Game>().HasData(
             new Game { Id = 1, Title = "Pokemon Red and Green", ReleaseDate = new DateTime(1996, 2, 27), Generation = "1", Region = "Kanto", Developer = "Game Freak", Director = "Satoshi Tajiri", Platform = "Game Boy", Description = "The original Pokemon role-playing games introduce the series' core mechanics of catching, training, and battling Pokemon. Players travel across Kanto to collect eight Gym Badges, challenge the Pokemon League, and encounter the criminal organization Team Rocket." },
             new Game { Id = 2, Title = "Pokemon Blue", ReleaseDate = new DateTime(1996, 10, 15), Generation = "1", Region = "Kanto", Developer = "Game Freak", Director = "Satoshi Tajiri", Platform = "Game Boy", Description = "Pokemon Blue is an updated version of the original Red and Green releases, featuring revised Pokemon artwork and other changes. It follows the same Kanto adventure, in which players collect Gym Badges, complete their Pokedex, and challenge the Pokemon League." },

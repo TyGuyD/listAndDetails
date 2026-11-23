@@ -1,4 +1,4 @@
-namespace listAndDetails.Models;
+namespace listAndDetails.ViewModels;
 
 public class ErrorViewModel
 {

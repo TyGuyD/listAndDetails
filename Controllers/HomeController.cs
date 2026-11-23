@@ -1,6 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using listAndDetails.Models;
+using listAndDetails.ViewModels;
 
 namespace listAndDetails.Controllers;
 
