@@ -18,6 +18,8 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+app.UseStatusCodePagesWithReExecute("/Home/Missing");
+
 app.UseRouting();
 
 app.UseAuthorization();
