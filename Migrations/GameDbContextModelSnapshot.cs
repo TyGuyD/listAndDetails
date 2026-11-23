@@ -75,7 +75,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 1,
-                            Description = "The first Pokemon games released in Japan.",
+                            Description = "The original Pokemon role-playing games introduce the series' core mechanics of catching, training, and battling Pokemon. Players travel across Kanto to collect eight Gym Badges, challenge the Pokemon League, and encounter the criminal organization Team Rocket.",
                             Developer = "Game Freak",
                             Director = "Satoshi Tajiri",
                             Generation = "1",
@@ -87,7 +87,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 2,
-                            Description = "An updated version of Pokemon Red and Green released in Japan.",
+                            Description = "Pokemon Blue is an updated version of the original Red and Green releases, featuring revised Pokemon artwork and other changes. It follows the same Kanto adventure, in which players collect Gym Badges, complete their Pokedex, and challenge the Pokemon League.",
                             Developer = "Game Freak",
                             Director = "Satoshi Tajiri",
                             Generation = "1",
@@ -99,7 +99,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 3,
-                            Description = "A special edition of Pokemon Red and Blue featuring Pikachu as the starter Pokemon.",
+                            Description = "Pokemon Yellow is a special edition inspired by the Pokemon animated series. Pikachu accompanies the player outside its Pokeball, while several characters and events reflect elements of the anime, including encounters with Jessie and James.",
                             Developer = "Game Freak",
                             Director = "Satoshi Tajiri",
                             Generation = "1",
@@ -111,7 +111,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 4,
-                            Description = "The second generation of Pokemon games introducing new Pokemon and features.",
+                            Description = "Pokemon Gold and Silver introduce the Johto region and 100 new Pokemon, along with breeding, held items, and a day-and-night cycle. After becoming Champion, players can travel to Kanto and challenge its Gym Leaders as well.",
                             Developer = "Game Freak",
                             Director = "Satoshi Tajiri",
                             Generation = "2",
@@ -123,7 +123,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 5,
-                            Description = "An updated version of Pokemon Gold and Silver with additional features.",
+                            Description = "Pokemon Crystal is an enhanced version of Gold and Silver with animated Pokemon sprites and additional story events involving the Legendary Pokemon Suicune. It also allows players to choose a female protagonist for the first time in the main series.",
                             Developer = "Game Freak",
                             Director = "Junichi Masuda",
                             Generation = "2",
@@ -135,7 +135,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 6,
-                            Description = "The third generation of Pokemon games introducing new Pokemon and features.",
+                            Description = "Pokemon Ruby and Sapphire introduce the Hoenn region and 135 new Pokemon, along with abilities, natures, double battles, and contests. The story centers on the conflict between Team Magma and Team Aqua, whose plans threaten the balance of the region's environment.",
                             Developer = "Game Freak",
                             Director = "Junichi Masuda",
                             Generation = "3",
@@ -147,7 +147,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 7,
-                            Description = "An updated version of Pokemon Ruby and Sapphire with additional features.",
+                            Description = "Pokemon Emerald expands the Hoenn story by featuring both Team Magma and Team Aqua, with Rayquaza playing a central role in resolving their conflict. Its major post-game addition is the Battle Frontier, which offers several specialized facilities for challenging battles.",
                             Developer = "Game Freak",
                             Director = "Shigeki Morimoto",
                             Generation = "3",
@@ -159,7 +159,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 8,
-                            Description = "The fourth generation of Pokemon games introducing new Pokemon and features.",
+                            Description = "Pokemon Diamond and Pearl introduce the Sinnoh region and 107 new Pokemon. The games add online trading and battling through Nintendo Wi-Fi Connection, while the story follows the player's journey to the Pokemon League and their confrontation with Team Galactic.",
                             Developer = "Game Freak",
                             Director = "Junichi Masuda",
                             Generation = "4",
@@ -171,7 +171,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 9,
-                            Description = "An updated version of Pokemon Diamond and Pearl with additional features.",
+                            Description = "Pokemon Platinum revisits Sinnoh with an expanded story involving Giratina and the Distortion World, a mysterious dimension where normal physical rules do not apply. It also introduces additional characters, revised locations, and a Battle Frontier based on the facility from Pokemon Emerald.",
                             Developer = "Game Freak",
                             Director = "Takeshi Kawachimaru",
                             Generation = "4",
@@ -183,7 +183,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 10,
-                            Description = "The fifth generation of Pokemon games introducing new Pokemon and features.",
+                            Description = "Pokemon Black and White take place in Unova, a region inspired by the New York metropolitan area, and introduce 156 new Pokemon. Their story focuses on Team Plasma and raises questions about whether Pokemon should continue to be used for battling alongside the player's journey to become Champion.",
                             Developer = "Game Freak",
                             Director = "Junichi Masuda",
                             Generation = "5",
@@ -195,7 +195,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 11,
-                            Description = "An updated version of Pokemon Black and White with additional features.",
+                            Description = "Pokemon Black 2 and White 2 are direct sequels set two years after the events of Black and White. Players revisit a changed Unova, explore new areas, encounter returning characters, and face a revived Team Plasma with a different agenda.",
                             Developer = "Game Freak",
                             Director = "Takao Unno",
                             Generation = "5",
@@ -207,7 +207,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 12,
-                            Description = "The sixth generation of Pokemon games introducing new Pokemon and features.",
+                            Description = "Pokemon X and Y introduce the Kalos region and mark the main series' transition to fully 3D environments and character models. The games add Mega Evolution, character customization, and the Fairy type, while their story involves the ancient history of Kalos and Team Flare.",
                             Developer = "Game Freak",
                             Director = "Junichi Masuda",
                             Generation = "6",
@@ -219,7 +219,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 13,
-                            Description = "An updated version of Pokemon Ruby and Sapphire with additional features.",
+                            Description = "Pokemon Omega Ruby and Alpha Sapphire remake the original Hoenn games with 3D environments, updated battle mechanics, and Mega Evolution. They also include the Delta Episode, an additional story involving Rayquaza, Deoxys, and a threat approaching the planet.",
                             Developer = "Game Freak",
                             Director = "Shigeru Ohmori",
                             Generation = "6",
@@ -231,7 +231,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 14,
-                            Description = "The seventh generation of Pokemon games introducing new Pokemon and features.",
+                            Description = "Pokemon Sun and Moon take place in Alola, a tropical region made up of four main islands and a smaller artificial island. The traditional Gym challenge is replaced by island trials, while the story introduces Z-Moves, regional Pokemon forms, and the mysterious Ultra Beasts.",
                             Developer = "Game Freak",
                             Director = "Shigeru Ohmori",
                             Generation = "7",
@@ -243,7 +243,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 15,
-                            Description = "An updated version of Pokemon Sun and Moon with additional features.",
+                            Description = "Pokemon Ultra Sun and Ultra Moon revisit Alola with an expanded storyline centered on Necrozma and its connection to the Ultra Beasts. The games add new locations, activities, and post-game content, including the ability to travel through Ultra Wormholes to other worlds.",
                             Developer = "Game Freak",
                             Director = "Kazumasa Iwao",
                             Generation = "7",
@@ -255,7 +255,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 16,
-                            Description = "A reimagining of Pokemon Yellow with updated graphics and gameplay.",
+                            Description = "Pokemon Let's Go, Pikachu! and Let's Go, Eevee! revisit the Kanto region with gameplay influenced by Pokemon Yellow and Pokemon GO. Wild Pokemon are caught using motion-based or button controls rather than traditional battles, while trainer battles and Gym challenges retain familiar series mechanics.",
                             Developer = "Game Freak",
                             Director = "Junichi Masuda",
                             Generation = "7",
@@ -267,7 +267,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 17,
-                            Description = "The eighth generation of Pokemon games introducing new Pokemon and features.",
+                            Description = "Pokemon Sword and Shield introduce the Galar region, inspired by Great Britain, and feature a Pokemon League organized around a series of public Gym battles. The games add Dynamax and Gigantamax transformations, as well as the Wild Area, a large environment where players can explore and encounter Pokemon in varying weather conditions.",
                             Developer = "Game Freak",
                             Director = "Shigeru Ohmori",
                             Generation = "8",
@@ -279,7 +279,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 18,
-                            Description = "A remaster of Pokemon Diamond and Pearl with updated graphics and gameplay.",
+                            Description = "Pokemon Brilliant Diamond and Shining Pearl are remakes of the original Diamond and Pearl, recreating the Sinnoh adventure with updated graphics and a chibi-style overworld. They retain much of the original structure while incorporating features such as the Grand Underground, updated Pokemon storage, and modernized online functions.",
                             Developer = "ILCA",
                             Director = "Junichi Masuda, Yuichi Ueda",
                             Generation = "8",
@@ -291,7 +291,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 19,
-                            Description = "A prequel to Pokemon Diamond and Pearl set in the Hisui region.",
+                            Description = "Pokemon Legends: Arceus takes place in the Hisui region, an earlier version of Sinnoh, when people and Pokemon have not yet learned to live closely together. Players work for the Galaxy Expedition Team to research Pokemon, complete the first regional Pokedex, and investigate mysterious phenomena involving powerful Pokemon.",
                             Developer = "Game Freak",
                             Director = "Kazumasa Iwao",
                             Generation = "8",
@@ -303,7 +303,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 20,
-                            Description = "The ninth generation of Pokemon games introducing new Pokemon and features.",
+                            Description = "Pokemon Scarlet and Violet take place in Paldea, an open-world region where players can explore in a largely unrestricted order. The adventure is divided into three storylines involving Gym challenges, the mysterious Titan Pokemon, and Team Star, while the Terastal phenomenon changes Pokemon's types during battle.",
                             Developer = "Game Freak",
                             Director = "Shigeru Ohmori",
                             Generation = "9",
@@ -315,7 +315,7 @@ namespace listAndDetails.Migrations
                         new
                         {
                             Id = 21,
-                            Description = "A new entry in the Pokemon Legends series set in Lumiose City, featuring an urban redevelopment project and a real-time battle system.",
+                            Description = "Pokemon Legends: Z-A takes place entirely within Lumiose City in the Kalos region, where an urban redevelopment project aims to create a city shared by people and Pokemon. Battles use real-time movement and attacks, and Mega Evolution returns as a central part of the gameplay.",
                             Developer = "Game Freak",
                             Director = "Haruka Tochigi",
                             Generation = "9",
@@ -336,7 +336,8 @@ namespace listAndDetails.Migrations
 
                     b.Property<string>("Comment")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("GameId")
                         .HasColumnType("int");
@@ -346,7 +347,8 @@ namespace listAndDetails.Migrations
 
                     b.Property<string>("ReviewerName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
