@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace listAndDetails.Controllers;
 
-[Authorize(Roles = "RegistryAdmin")]
+[Authorize]
 public class GamesController : Controller
 {
     private readonly GameDbContext _context;
@@ -38,11 +38,13 @@ public class GamesController : Controller
         return View(game);
     }
 
+    [Authorize(Roles = "RegistryAdmin")]
     public IActionResult Create()
     {
         return View();
     }
 
+    [Authorize(Roles = "RegistryAdmin")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public IActionResult Create(Game.Models.Game game)
@@ -56,6 +58,7 @@ public class GamesController : Controller
         return View(game);
     }
 
+    [Authorize(Roles = "RegistryAdmin")]
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null)
@@ -71,6 +74,7 @@ public class GamesController : Controller
         return View(game);
     }
 
+    [Authorize(Roles = "RegistryAdmin")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Generation,Region,Developer,Director,Platform,Description")] Game.Models.Game game)
@@ -102,6 +106,7 @@ public class GamesController : Controller
         return View(game);
     }
 
+    [Authorize(Roles = "RegistryAdmin")]
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null)
@@ -119,6 +124,7 @@ public class GamesController : Controller
         return View(game);
     }
 
+    [Authorize(Roles = "RegistryAdmin")]
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
@@ -138,7 +144,6 @@ public class GamesController : Controller
         return _context.Games.Any(e => e.Id == id);
     }
 
-    [AllowAnonymous]
     [HttpGet]
     public async Task<IActionResult> CreateReview(int? GameId)
     {
@@ -160,7 +165,6 @@ public class GamesController : Controller
         });
     }
 
-    [AllowAnonymous]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateReview(ReviewFormViewModel model)
