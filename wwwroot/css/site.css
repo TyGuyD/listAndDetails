@@ -565,6 +565,239 @@ a {
   margin: 12px 0 20px;
 }
 
+.details-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+  gap: 18px;
+}
+
+.details-panel,
+.reviews-panel,
+.dex-form,
+.delete-panel,
+.system-panel {
+  border: 2px solid var(--dex-navy);
+  border-radius: 12px;
+  background: rgba(248,252,254,.78);
+  box-shadow: 6px 6px 0 rgba(18,63,115,.12);
+}
+
+.details-panel,
+.reviews-panel,
+.delete-panel,
+.system-panel {
+  padding: 22px;
+}
+
+.details-panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 38px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(18,63,115,.18);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.status-chip {
+  color: #1e7a43;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.details-grid div,
+.delete-facts div {
+  min-width: 0;
+  padding: 10px 12px;
+  border-left: 3px solid var(--dex-red);
+  background: #e8f5fb;
+}
+
+.details-grid dt,
+.delete-facts dt {
+  color: #64869f;
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.details-grid dd,
+.delete-facts dd {
+  margin: 5px 0 0;
+  font-weight: 800;
+}
+
+.details-description {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(18,63,115,.18);
+  border-radius: 8px;
+  background: rgba(215,239,252,.55);
+}
+
+.details-description p {
+  margin: 8px 0 0;
+  line-height: 1.65;
+}
+
+.details-actions,
+.dex-form-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.dex-button-danger {
+  border-color: var(--dex-black);
+  background: var(--dex-red);
+  color: white;
+}
+
+.dex-button-danger:hover {
+  background: var(--dex-red-dark);
+  color: white;
+}
+
+.review-list {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.review-card {
+  padding: 12px;
+  border-left: 3px solid var(--dex-yellow);
+  background: #e8f5fb;
+}
+
+.review-card div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.review-card p {
+  margin: 8px 0 0;
+  font-size: .86rem;
+  line-height: 1.5;
+}
+
+.review-rating {
+  color: var(--dex-red);
+  font-size: .75rem;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.empty-reviews {
+  min-height: 100px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+  border: 1px dashed rgba(18,63,115,.35);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.dex-form {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  min-width: 0;
+}
+
+.form-group-full {
+  grid-column: 1 / -1;
+}
+
+.form-group label,
+.control-label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--dex-navy);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 11px;
+  border: 2px solid rgba(18,63,115,.55);
+  border-radius: 7px;
+  background: #f8fcfe;
+  color: var(--dex-navy);
+  font: inherit;
+}
+
+textarea.form-control {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.text-danger {
+  display: block;
+  margin-top: 5px;
+  color: #a70f18;
+  font-size: .78rem;
+}
+
+.delete-panel,
+.system-panel {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.delete-warning {
+  margin: 0 0 8px;
+  color: var(--dex-red);
+  font-size: .72rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.delete-panel h2,
+.system-panel h1 {
+  margin: 0 0 12px;
+  color: var(--dex-navy);
+  text-transform: uppercase;
+}
+
+.delete-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.system-panel p {
+  line-height: 1.65;
+}
+
 .btn:focus,
 .btn:active:focus,
 .btn-link.nav-link:focus,
@@ -595,6 +828,10 @@ a {
   }
 
   .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .details-layout {
     grid-template-columns: 1fr;
   }
 }
@@ -683,5 +920,22 @@ a {
 
   .game-card-footer {
     align-items: flex-end;
+  }
+
+  .details-grid,
+  .form-grid,
+  .delete-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .details-actions,
+  .dex-form-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .details-actions .dex-button,
+  .dex-form-actions .dex-button {
+    width: 100%;
   }
 }

@@ -1,15 +1,22 @@
 @model Game.Models.Game
 
 @{
-    ViewData["Title"] = "Create Game";
+    ViewData["Title"] = "Edit Game";
 }
 
-<h1>Edit Game</h1>
+<div class="games-header">
+    <div>
+        <p class="screen-kicker">GameDex Archive / Update Entry</p>
+        <h1>Edit Game</h1>
+    </div>
+    <a asp-action="Details" asp-route-id="@Model.Id" class="dex-button dex-button-secondary">&larr; Back to entry</a>
+</div>
 
-<form asp-action="Edit" method="post">
+<form asp-action="Edit" method="post" class="dex-form">
 
     <input type="hidden" asp-for="Id" />
 
+    <div class="form-grid">
     <div class="form-group">
         <label asp-for="Title" class="control-label"></label>
         <input asp-for="Title" class="form-control" />
@@ -45,13 +52,16 @@
         <input asp-for="Platform" class="form-control" />
         <span asp-validation-for="Platform" class="text-danger"></span>
     </div>
-    <div class="form-group">
+    <div class="form-group form-group-full">
         <label asp-for="Description" class="control-label"></label>
         <textarea asp-for="Description" class="form-control"></textarea>
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-secondary">Cancel</a>
+    </div>
+    <div class="dex-form-actions">
+        <button type="submit" class="dex-button dex-button-primary">Save changes</button>
+        <a asp-action="Details" asp-route-id="@Model.Id" class="dex-button dex-button-secondary">Cancel</a>
+    </div>
 </form>
 
 @section Scripts {

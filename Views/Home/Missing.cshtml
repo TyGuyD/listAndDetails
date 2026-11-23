@@ -2,6 +2,9 @@
     ViewData["Title"] = "Page Missing";
 }
 
-<h1>We’re sorry — that page could not be found.</h1>
-<p>The link may be out of date or the item may have been removed.</p>
-<p><a asp-controller="Home" asp-action="Index">Return to the home page</a></p>
+<section class="system-panel">
+    <p class="screen-kicker">GameDex / Navigation alert</p>
+    <h1>Entry not found</h1>
+    <p>The requested page may be out of date or the entry may have been removed.</p>
+    <a asp-controller="Home" asp-action="Index" class="dex-button dex-button-primary">Return home</a>
+</section>

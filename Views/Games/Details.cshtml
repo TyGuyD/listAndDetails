@@ -1,30 +1,67 @@
 @model Game.Models.Game
 
-<h1>@Model.Title</h1>
+@{
+    ViewData["Title"] = Model.Title;
+}
 
-<p><strong>Release Date:</strong> @Model.ReleaseDate.ToShortDateString()</p>
-<p><strong>Generation:</strong> @Model.Generation</p>
-<p><strong>Region:</strong> @Model.Region</p>
-<p><strong>Developer:</strong> @Model.Developer</p>
-<p><strong>Director:</strong> @Model.Director</p>
-<p><strong>Platform:</strong> @Model.Platform</p>
-<p><strong>Description:</strong> @Model.Description</p>
+<div class="games-header">
+    <div>
+        <p class="screen-kicker">GameDex Entry / No. @Model.Id.ToString("D3")</p>
+        <h1>@Model.Title</h1>
+    </div>
+    <a asp-action="Index" class="dex-button dex-button-secondary">&larr; Back to index</a>
+</div>
 
-<a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-<br>
-<a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
-<br>
-<a asp-controller="Games" asp-action="Index">Back to List</a>
+<div class="details-layout">
+    <section class="details-panel">
+        <div class="details-panel-heading">
+            <span>Entry data</span>
+            <span class="status-chip">Registered</span>
+        </div>
+        <dl class="details-grid">
+            <div><dt>Release date</dt><dd>@Model.ReleaseDate.ToString("MMMM d, yyyy")</dd></div>
+            <div><dt>Generation</dt><dd>@Model.Generation</dd></div>
+            <div><dt>Region</dt><dd>@Model.Region</dd></div>
+            <div><dt>Platform</dt><dd>@Model.Platform</dd></div>
+            <div><dt>Developer</dt><dd>@Model.Developer</dd></div>
+            <div><dt>Director</dt><dd>@(string.IsNullOrWhiteSpace(Model.Director) ? "Not listed" : Model.Director)</dd></div>
+        </dl>
+        <div class="details-description">
+            <span class="fact-label">Description</span>
+            <p>@Model.Description</p>
+        </div>
+        <div class="details-actions">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="dex-button dex-button-primary">Edit entry</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="dex-button dex-button-danger">Delete entry</a>
+        </div>
+    </section>
 
-<div style="margin-top: 20px;">
-    <h2>Reviews</h2>
-    <ul>
-        @foreach (var review in Model.Reviews)
+    <section class="reviews-panel">
+        <div class="details-panel-heading">
+            <span>Field reviews</span>
+            <span>@Model.Reviews.Count() total</span>
+        </div>
+        @if (!Model.Reviews.Any())
         {
-            <li>
-                <strong>@review.ReviewerName</strong>: @review.Rating/10 - @review.Comment
-            </li>
+            <div class="empty-reviews">
+                <p>No reviews have been logged for this entry.</p>
+            </div>
         }
-    </ul>
-    <a asp-action="CreateReview" asp-route-GameId="@Model.Id" class="btn btn-primary">Add Review</a>
+        else
+        {
+            <div class="review-list">
+                @foreach (var review in Model.Reviews)
+                {
+                    <article class="review-card">
+                        <div>
+                            <strong>@review.ReviewerName</strong>
+                            <span class="review-rating">@review.Rating.ToString("0.0") / 10</span>
+                        </div>
+                        <p>@review.Comment</p>
+                    </article>
+                }
+            </div>
+        }
+        <a asp-action="CreateReview" asp-route-GameId="@Model.Id" class="dex-button dex-button-primary">Add review</a>
+    </section>
 </div>
