@@ -30,7 +30,12 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-app.UseStatusCodePagesWithReExecute("/Home/Missing");
+app.UseWhen(
+    context => !context.Request.Path.StartsWithSegments("/api"),
+    branch =>
+    {
+        branch.UseStatusCodePagesWithReExecute("/Home/Missing");
+    });
 
 app.UseRouting();
 
@@ -45,5 +50,8 @@ using (var scope = app.Services.CreateScope())
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapGet("/api/games/count", async (GameDbContext db) => 
+    new { count = await db.Games.CountAsync() });
 
 app.Run();
