@@ -61,6 +61,16 @@
                             <span class="review-rating">@review.Rating.ToString("0.0") / 10</span>
                         </div>
                         <p>@review.Comment</p>
+                        @if (User.IsInRole("RegistryAdmin"))
+                        {
+                            <form asp-action="DeleteReview" method="post">
+                                <input type="hidden" name="id" value="@review.Id" />
+                                <input type="hidden" name="gameId" value="@Model.Id" />
+                                <button type="submit" class="dex-button dex-button-danger">
+                                    Delete review
+                                </button>
+                            </form>
+                        }
                     </article>
                 }
             </div>

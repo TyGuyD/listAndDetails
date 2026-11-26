@@ -165,6 +165,25 @@ public class GamesController : Controller
         });
     }
 
+    [Authorize(Roles = "RegistryAdmin")]
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteReview(int id, int gameId)
+    {
+        var review = await _context.Reviews
+            .FirstOrDefaultAsync(review => review.Id == id && review.GameId == gameId);
+
+        if (review == null)
+        {
+            return NotFound();
+        }
+
+        _context.Reviews.Remove(review);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction(nameof(Details), new { id = gameId });
+    }
+
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> CreateReview(ReviewFormViewModel model)

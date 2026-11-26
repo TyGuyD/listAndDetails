@@ -15,9 +15,13 @@
             <a asp-controller="Games" asp-action="Index" class="dex-button dex-button-primary">
                 Open the GameDex
             </a>
-            <a asp-controller="Games" asp-action="Create" class="dex-button dex-button-secondary">
-                Register a game
-            </a>
+            
+            @if (User.IsInRole("RegistryAdmin"))
+            {
+                <a asp-controller="Games" asp-action="Create" class="dex-button dex-button-secondary">
+                    Register a game
+                </a>
+            }
         </div>
     </section>
 
